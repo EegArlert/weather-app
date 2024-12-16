@@ -1,0 +1,20 @@
+Weather App
+
+Functionality: 
+
+-- Get the weather data of a location via API from Visual Crossing
+-- User can choose between displaying current/hourly/daily weather condition
+
+
+
+Design: 
+
+-- Change content card display based on user choice 
+(current/hourly/daily) weather condition
+
+-- Display the city that is currently active on the query
+
+-- Include some logo/animation based on the time of the day 
+and weather condition
+
+
