@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather App</title>
-    <script src="./index.js"  type="module"></script>
+    <script src="./index.js" type="module"></script>
 </head>
+
 <body>
     <header>
         <h1>Weather App</h1>
@@ -14,35 +16,118 @@
     <main>
         <form action="#">
             <label for="city">City</label>
-            <input type="text">
-            <label for="Country">Country</label>
-            <input type="text">
-            <button id="submit-btn">Search</button>
+            <input type="text" id="city">
+            <label for="country">Country</label>
+            <input type="text" id="country">
+            <button id="submit-btn" type="submit">Search</button>
         </form>
 
         <div id="content-container">
-            <h2 id="location-name"></h2>
-            <div id="time-frame-wrapper">
-                <a class="time-frame today">Today</a>
-                <a class="time-frame hourly">Hourly</a>
-                <a class="time-frame daily">Daily</a>
+            <div id="view-option-wrapper">
+                <a class="view-option current active">Current</a>
+                <a class="view-option hourly">Hourly</a>
+                <a class="view-option daily">Daily</a>
+                <section class="unit-radio-button">
+                    <input type="radio" name="unit" id="celcius" value="metric" checked>
+                    <label class="label-celcius" for="celcius">&deg;C</label>
+                    <input type="radio" name="unit" id="fahrenheit" value="us">
+                    <label class="label-fahrenheit" for="fahrenheit">&deg;F</label>
+                </section>
             </div>
+            <h2 id="location-name"></h2>
+            <div id="card-content-wrapper">
+                <div class="card-content hourly">
+                    <div class="card-top hourly">
+                        <p class="hour">9 AM</p>
+                        <p class="date">12/19/2024</p>
+                    </div>
+                    <div class="card-icon"></div>
+                    <div class="card-mid hourly">
+                        <div class="temperature">
+                            <span class="temp-value">32°</span>
+                            <span class="weather-condition">Mostly Cloudy</span>
+                        </div>
+                        <div class="card-bottom hourly">
+                            <p class="humidity">
+                                Humidity: <span class="humidity-value">63%</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
 
-            <div id="card-content-grid">
+                <div class="card-content hourly">
+                    <div class="card-top hourly">
+                        <p class="hour">9 AM</p>
+                        <p class="date">12/19/2024</p>
+                    </div>
+                    <div class="card-icon"></div>
+                    <div class="card-mid hourly">
+                        <div class="temperature">
+                            <span class="temp-value">32°</span>
+                            <span class="weather-condition">Mostly Cloudy</span>
+                        </div>
+                        <div class="card-bottom hourly">
+                            <p class="humidity">
+                                Humidity: <span class="humidity-value">63%</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-content hourly">
+                    <div class="card-top hourly">
+                        <p class="hour">9 AM</p>
+                        <p class="date">12/19/2024</p>
+                    </div>
+                    <div class="card-icon"></div>
+                    <div class="card-mid hourly">
+                        <div class="temperature">
+                            <span class="temp-value">32°</span>
+                            <span class="weather-condition">Mostly Cloudy</span>
+                        </div>
+                        <div class="card-bottom hourly">
+                            <p class="humidity">
+                                Humidity: <span class="humidity-value">63%</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-content hourly">
+                    <div class="card-top hourly">
+                        <p class="hour">9 AM</p>
+                        <p class="date">12/19/2024</p>
+                    </div>
+                    <div class="card-icon"></div>
+                    <div class="card-mid hourly">
+                        <div class="temperature">
+                            <span class="temp-value">32°</span>
+                            <span class="weather-condition">Mostly Cloudy</span>
+                        </div>
+                        <div class="card-bottom hourly">
+                            <p class="humidity">
+                                Humidity: <span class="humidity-value">63%</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+             
+                <!-- 'current' card layout -->
                 <!--
-                .
-                .
-                .
-                This will be filled with content Cards
-                 -->
-            </div>  
+                    .
+                    .
+                    .
+                    This will be filled with content Cards
+                -->
+
+
+            </div>
         </div>
     </main>
 
     <footer>
         <p>Created by <a href="https://github.com/EegArlert/">EegArlert</a></p>
-        <p>Weather API by <a href="https://www.visualcrossing.com/">Visual Crossing</a></p>
-        <p>Images by <a href=""></a></p>
+        <p>Weather API / SVG by <a href="https://www.visualcrossing.com/">Visual Crossing</a></p>
     </footer>
 </body>
+
 </html>

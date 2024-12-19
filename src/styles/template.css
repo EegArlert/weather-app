@@ -175,7 +175,7 @@ main {
 
 main form {
     display: grid;
-    grid-template-columns: 1fr 2frfr;
+    grid-template-columns: 1fr 2fr;
     grid-template-rows: 1fr 1fr 1fr;
     width: 70%;
     row-gap: 0.7rem;
@@ -190,7 +190,7 @@ main form label {
 }
 
 main form input {
-    width: 300px;
+    max-width: 300px;
     height: 70%;
     margin-left: 15px;
 }
@@ -204,55 +204,78 @@ main form button {
 }
 
 #content-container {
-    width: 100%;
+    width: 95%;
     height: 80%;
     border: var(--border-color-5);
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 1rem;
 }
 
 #location-name {
     width: 80%;
     height: 40px;
     text-align: center;
-    margin-bottom: 10px;
+    font-size: 30px;
+    margin-top: 10px;
     border: var(--border-color-1);
 }
 
 /* Time Frame Navigation Styling Start */
 
-#time-frame-wrapper {
+#view-option-wrapper {
     display: flex;
     justify-content: space-evenly;
-    width: 50%;
+    align-items: center;
+    min-width: 400px;
+    max-width: 700px;
+    height: 40px;
+    gap: 1rem;
+    border: var(--border-color-4);
 }
 
-#time-frame-wrapper a {
+#view-option-wrapper a {
+    display: inline-block;
+    height: 100%;
     color: #252524;
     text-decoration: none;
-    font-size: 1.2em;
     text-transform: uppercase;
+    text-align: center;
+    font-size: 1.2em;
     font-weight: 500;
-    display: inline-block;
-    width: 80px;
     -webkit-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
-    text-align: center;
     border: none;
-    padding-bottom: 5px;
+    align-content: center;
 }
 
-#time-frame-wrapper a:hover {
+#view-option-wrapper a:hover {
     color: #6f6f6f;
-    border-bottom: solid 0.8px rgba(20, 20, 20, 1);
+    border-bottom: solid 2px rgba(20, 20, 20, 0.9);
 }
 
-#time-frame-wrapper a.active {
-    color: #1b1b1b;
-    border-bottom: solid 0.8px rgba(20, 20, 20, 1);
+#view-option-wrapper a.active {
+    border-bottom: solid 2px rgba(20, 20, 20, 0.9);
 }
+
 /* Time Frame Navigation Styling End */
+
+/* Card Content Styling Starts */
+
+#card-content-wrapper {
+    border: var(--border-color-1);
+    width: 100%;
+    height: 100%;
+    margin: 1rem 0;
+    padding: 0 1rem;
+    box-sizing: border-box;
+    display: flex;
+    gap: 40px;
+    overflow: scroll;
+}
+
+/* Card Content Styling Ends */
 
 footer {
     display: flex;
