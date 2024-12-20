@@ -1,4 +1,5 @@
-import { createCard, activeViewOption, displayLocation, displayContent } from "./utils/helper";
+import { displayContent } from "./utils/helper";
+import getIcon from "./utils/icon";
 import './styles/template.css'
 import './styles/currentCard.css'
 import './styles/hourlyCard.css'
@@ -19,7 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const temperatureRadio = document.querySelectorAll('input[name="unit"]');
     let tempUnitBefore = document.querySelector('input[name="unit"]:checked').value
-    let currentTemp = tempUnitBefore
 
     temperatureRadio.forEach(temp => {
 
