@@ -3,70 +3,71 @@ import { unitCheker } from "../utils/helper";
 
 function createCurrentWeatherCard(data, measurementUnit) {
     // Create the card container
-    const card = document.createElement('div');
-    card.className = 'card-content current';
+    const currentConditionCard = document.createElement('div');
+    currentConditionCard.className = 'card-content current';
 
     // Top Section: Day and Time
-    const cardTop = document.createElement('section');
-    cardTop.className = 'card-top';
+    const currentConditionCardTop = document.createElement('section');
+    currentConditionCardTop.className = 'card-top current';
 
-    const dayElement = document.createElement('p');
-    dayElement.className = 'day';
-    dayElement.textContent = data.day;
+    const currentConditionDayElement = document.createElement('p');
+    currentConditionDayElement.className = 'day current';
+    currentConditionDayElement.textContent = data.day;
 
-    const timeElement = document.createElement('p');
-    timeElement.className = 'time';
-    timeElement.textContent = 'Now';
+    const currentConditionTimeElement = document.createElement('p');
+    currentConditionTimeElement.className = 'time current';
+    currentConditionTimeElement.textContent = 'Now';
 
-    cardTop.appendChild(dayElement);
-    cardTop.appendChild(timeElement);
+    currentConditionCardTop.appendChild(currentConditionDayElement);
+    currentConditionCardTop.appendChild(currentConditionTimeElement);
 
     // Middle Section: Icon, Temp, Condition, Description
-    const cardMiddle = document.createElement('section');
-    cardMiddle.className = 'card-middle';
+    const currentConditionCardMiddle = document.createElement('section');
+    currentConditionCardMiddle.className = 'card-middle current';
 
-    const iconElement = document.createElement('div');
-    iconElement.className = 'icon';
-    iconElement.innerHTML = `<img src=${getIcon(data.icon)}/>`;
+    const currentConditionIconElement = document.createElement('div');
+    currentConditionIconElement.className = 'icon current';
+    currentConditionIconElement.innerHTML = `<img src=${getIcon(data.icon)}/>`;
 
-    const tempElement = document.createElement('p');
-    tempElement.className = 'temp';
-    tempElement.textContent = unitCheker(data.temp, measurementUnit)
+    const currentConditionTempElement = document.createElement('p');
+    currentConditionTempElement.className = 'temp current';
+    currentConditionTempElement.textContent = unitCheker(data.temp, measurementUnit)
 
-    const conditionElement = document.createElement('p');
-    conditionElement.className = 'condition';
-    conditionElement.textContent = data.condition;
+    const currentConditionElement = document.createElement('p');
+    currentConditionElement.className = 'condition current';
+    currentConditionElement.textContent = data.condition;
 
-    const descriptionElement = document.createElement('p');
-    descriptionElement.className = 'description';
-    descriptionElement.textContent = data.description;
+    const currentConditionDescriptionElement = document.createElement('p');
+    currentConditionDescriptionElement.className = 'description current';
+    currentConditionDescriptionElement.textContent = data.description;
 
-    cardMiddle.appendChild(iconElement);
-    cardMiddle.appendChild(tempElement);
-    cardMiddle.appendChild(conditionElement);
-    cardMiddle.appendChild(descriptionElement);
+    currentConditionCardMiddle.appendChild(currentConditionIconElement);
+    currentConditionCardMiddle.appendChild(currentConditionTempElement);
+    currentConditionCardMiddle.appendChild(currentConditionElement);
+    currentConditionCardMiddle.appendChild(currentConditionDescriptionElement);
 
     // Bottom Section: Feels Like and Humidity
-    const cardBottom = document.createElement('section');
-    cardBottom.className = 'card-bottom';
+    const currentConditionCardBottom = document.createElement('section');
+    currentConditionCardBottom.className = 'card-bottom current';
 
-    const feelsLikeElement = document.createElement('p');
-    feelsLikeElement.className = 'feelslike';
-    feelsLikeElement.innerHTML = `Feels Like: <span class="feelslike-value">${unitCheker(data.feelslike, measurementUnit)}</span>`;
+    const currentConditionFeelsLikeElement = document.createElement('p');
+    currentConditionFeelsLikeElement.className = 'feelslike current';
+    currentConditionFeelsLikeElement.innerHTML = `Feels Like: <span class="feelslike-value current">${unitCheker(data.feelslike, measurementUnit)}</span>`;
 
-    const humidityElement = document.createElement('p');
-    humidityElement.className = 'humidity';
-    humidityElement.innerHTML = `Humidity: <span class="humidity-value">${data.humidity}%</span>`;
+    const currentConditionHumidityElement = document.createElement('p');
+    currentConditionHumidityElement.className = 'humidity current';
+    currentConditionHumidityElement.innerHTML = `Humidity: <span class="humidity-value current">${data.humidity}%</span>`;
 
-    cardBottom.appendChild(feelsLikeElement);
-    cardBottom.appendChild(humidityElement);
+    currentConditionCardBottom.appendChild(currentConditionFeelsLikeElement);
+    currentConditionCardBottom.appendChild(currentConditionHumidityElement);
 
     // Append all sections to the main card container
-    card.appendChild(cardTop);
-    card.appendChild(cardMiddle);
-    card.appendChild(cardBottom);
+    currentConditionCard.appendChild(currentConditionCardTop);
+    currentConditionCard.appendChild(currentConditionCardMiddle);
+    currentConditionCard.appendChild(currentConditionCardBottom);
 
-    return card;
+    console.log(currentConditionCard)
+    return currentConditionCard;
 }
 
 export default createCurrentWeatherCard

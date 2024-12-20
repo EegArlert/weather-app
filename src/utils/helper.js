@@ -1,6 +1,6 @@
 import createCurrentWeatherCard from "../components/currentConditionCard";
 import createDailyWeatherCard from "../components/dailyConditionCard";
-import createHourlyWeatherCard from "../components/hourlyConditionCard";
+import createHourlyWeatherCardArray from "../components/hourlyConditionCard";
 import fetchWeatherApi from "./weatherAPI";
 
 
@@ -12,6 +12,7 @@ function toggle(container, activeContainer, className) {
 
     activeContainer.classList.toggle(className);
 }
+
 
 //check measurement unit and return appropriate data with correct unit
 function unitCheker(data ,measurementUnit) {
@@ -25,27 +26,11 @@ function unitCheker(data ,measurementUnit) {
 //create current, hourly, daily card and return those to use by
 //destructuring the array
 async function createCard(city, country, measurementUnit){
-
     const [getLocation, getCurrent, getHourly, getDaily] = await fetchWeatherApi(city, country, measurementUnit);
     const currentWeatherCard = createCurrentWeatherCard(getCurrent, measurementUnit);
-    const hourlyWeatherCard = createHourlyWeatherCard(getHourly, measurementUnit);
+    const hourlyWeatherCard = createHourlyWeatherCardArray(getHourly, measurementUnit);
     const dailyWeatherCard = createDailyWeatherCard(getDaily, measurementUnit);
-    console.log(currentWeatherCard)
     return [getLocation ,currentWeatherCard, hourlyWeatherCard, dailyWeatherCard]
-}
-
-
-// toggling between active view options and return the active option
-function activeViewOption() {
-    const viewOptions = document.querySelectorAll('.view-option');
-    viewOptions.forEach(option => {
-        option.addEventListener('click', () => {
-            toggle(viewOptions, option ,'active');
-        })
-    })
-
-    let activeViewOption = document.querySelector('.view-option.active');
-    return activeViewOption
 }
 
 function displayLocation(location) {
@@ -53,22 +38,66 @@ function displayLocation(location) {
     locationContainer.innerText = `${location.address}`;
 }
 
-// displaying the active card based on the return from activeViewOption()
-function displayActiveCard(current, hourly, daily) {
-    const parentContentCardWrapper = document.querySelector('#card-content-wrapper');
-    parentContentCardWrapper.innerHTML = '';
+// toggling between active view options and return the active option
+function activeViewOption(current, hourly, daily) {
+    const viewOptions = document.querySelectorAll('.view-option');
+    let activeViewOption = document.querySelector('.view-option.active');
+    displayActiveCard(current, hourly, daily, activeViewOption);
 
-    const activeOption = activeViewOption();
+    viewOptions.forEach(option => {
+        option.addEventListener('click', () => {
+            toggle(viewOptions, option ,'active');
+            activeViewOption = document.querySelector('.view-option.active');
+            displayActiveCard(current, hourly, daily, activeViewOption)
+        })
+    })
+}
+// displaying the active card based on the return from activeViewOption()
+function displayActiveCard(current, hourly, daily, activeOption) {
+    
+    const parentContentCardWrapper = document.querySelector('#card-content-wrapper');
+    parentContentCardWrapper.innerHTML = ''; 
 
     if(activeOption.classList.contains('current')) {
         parentContentCardWrapper.appendChild(current);
     }
     else if (activeOption.classList.contains('hourly')){
-        parentContentCardWrapper.appendChild(hourly)
+        hourly.forEach(card => {
+            parentContentCardWrapper.appendChild(card)
+        })
     } 
-    else {
-        parentContentCardWrapper.appendChild(daily);
+    else if (activeOption.classList.contains('daily')){
+        daily.forEach(card => {
+            parentContentCardWrapper.appendChild(card );
+        })
     }
 }
 
-export { createCard, activeViewOption, displayActiveCard, displayLocation, toggle, unitCheker }
+async function displayContent() {
+    //getting input parameter value for VisualCrossing API
+    const city = document.querySelector('input#city').value;
+    const country = document.querySelector('input#country').value;
+    const measurement = document.querySelector('input[name="unit"]:checked').value;
+
+    if(city === "" || country == ""){
+        alert("please provide name of the city and country");
+        return
+    }
+
+    try {
+        const [
+            getLocation,
+            currentWeatherCard,
+            hourlyWeatherCard,
+            dailyWeatherCard
+        ] = await createCard(city, country, measurement);
+        
+        displayLocation(getLocation)
+        activeViewOption(currentWeatherCard, hourlyWeatherCard, dailyWeatherCard)
+
+    } catch (e) {
+        console.log(e)
+    }
+}
+
+export { createCard, activeViewOption, displayActiveCard, displayLocation, toggle, unitCheker, displayContent }

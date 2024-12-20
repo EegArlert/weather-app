@@ -1,91 +1,97 @@
-.card-content.current {
-    width: 50%;
-    height: 100%;
-    border: var(--border-color-2);
-    background-color: rgb(255, 134, 53);
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    border-radius: 20px;
-}
-
-/* .current .info-wrapper {
-    width: 70%;
-    height: 100%;
-    border: var(--border-color-4);
+/* General Card Styling */
+.card-content {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-} */
-
-.current .card-top {
-    border: var(--border-color-5);
-    display: flex;
-    width: 80%;
-    justify-content: space-around;
-    font-size: 42px;
-    position: relative;
-    top: 1rem;
+    background-color: #ffffff; /* White background for the card */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    width: 300px; /* Fixed width */
+    padding: 16px;
+    margin: 16px auto; /* Center horizontally */
+    font-family: Arial, sans-serif;
+    color: #333; /* Dark text for readability */
 }
 
-.current .card-middle {
-    border: var(--border-color-1);
-    width: 80%;
-    height: 50%;
+/* Card Top Section */
+.card-top.current {
+    display: flex;
+    justify-content: space-between; /* Space between day and time */
+    width: 100%;
+    margin-bottom: 16px; /* Add space below */
+}
+
+.day.current {
+    font-size: 18px;
+    font-weight: bold;
+    color: #555; /* Muted dark color */
+}
+
+.time.current {
+    font-size: 14px;
+    color: #777; /* Subtle time color */
+}
+
+/* Card Middle Section */
+.card-middle.current {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: auto auto auto;
+    grid-gap: 15px; /* Space between rows */
+    text-align: center;
+    margin: 1rem 0;
+    width: 100%;
 }
 
-.card-middle .icon {
-    grid-column: 1 / 2;
-    width: 100px;
-    height: 100px;
-    align-self: center;
-    justify-self: center;
-    padding-right: 2rem;
+.icon.current img {
+    width: 80px; /* Size the weather icon */
+    height: 80px;
+    margin-bottom: 8px;
 }
 
-.icon img {
-    width: 100px;
-    height: 100px;
-    position: relative;
-    left: 1.5rem;
+.temp.current {
+    font-size: 24px;
+    font-weight: bold;
+    color: #0f0201; /* Emphasize temperature in red */
 }
 
-.card-middle .temp {
-    grid-column: 2 / 3;
-    font-size: 32px;
-    align-self: center;
-    justify-self: center;
+.condition.current {
+    font-size: 16px;
+    font-weight: 500;
+    color: #555; /* Muted dark color */
 }
 
-.card-middle .condition {
-    grid-column: 3 / 4;
-    font-size: 25px;
-    align-self: center;
+.description.current {
+    font-size: 14px;
+    color: #777; /* Subtle text for description */
+    margin-top: 4px;
 }
 
-
-.card-middle .description {
-    grid-row: 2 / 3;
-    grid-column: 1 / 4;
-    justify-self: center;
-    align-self: center;
-    font-size: 25px;
-}
-
-.current .card-bottom {
-    border: var(--border-color-2);
-    width: 80%;
-    height: 15%;
-    position: relative;
-    bottom: 1rem;
+/* Card Bottom Section */
+.card-bottom.current {
     display: flex;
-    justify-content: space-around;
+    gap: 8px; /* Add space between items */
     align-items: center;
-    font-size: 1.5rem;
+    justify-content: space-around;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.feelslike.current,
+.humidity.current {
+    display: inline;
+    font-size: 14px;
+    color: #555; /* Muted text for labels */
+}
+
+.card-bottom.current .feelslike-value.current,
+.card-bottom.current .humidity-value.current {
+    font-weight: bold;
+    color: #333; /* Slightly darker for emphasis */
+}
+
+/* Responsive Design */
+@media (max-width: 400px) {
+    .card-content {
+        width: 90%; /* Full width on smaller screens */
+    }
 }

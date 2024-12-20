@@ -9,7 +9,6 @@ async function fetchWeatherApi(city, country, measurementUnit) {
     try {
         let result = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city},${country}?unitGroup=${measurementUnit}&key=${VISUAL_CROSSING_API_KEY}`);
         let resultJSON = await Promise.resolve(result.json())
-        console.log(resultJSON)
         // console.log('fetchapi functin called')
         // console.log(resultJSON)
 

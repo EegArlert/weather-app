@@ -30,15 +30,3 @@ export function Weather(
             description: description,
         }
 }
-
-export function Location(
-    resolvedAddress,
-    description,
-    timezone,
-) {
-    return {
-        resolvedAddress: resolvedAddress,
-        desription: description,
-        timezone: timezone,
-    }
-}
