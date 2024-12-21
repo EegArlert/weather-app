@@ -25,6 +25,7 @@ import wind from "../assets/wind.svg";
 function getIcon(iconDescription) {
     switch (iconDescription) {
         case "clear-day":
+            console.log(clearDay)
             return clearDay;
         case "clear-night":
             return clearNight;

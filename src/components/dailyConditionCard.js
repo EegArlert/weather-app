@@ -26,9 +26,8 @@ function createDailyWeatherCard(data, measurementUnit) {
     dailyConditionCardIcon.className = 'card-icon daily';
 
     dailyConditionCardIcon.innerHTML = `
-    <img src="${getIcon(data.icon)}"/>
-    <p class="weather-condition daily">${data.condition}</p>
-`;
+    <img src="${getIcon(data.icon)}" alt="${data.icon}"/>
+    <p class="weather-condition daily">${data.condition}</p>`;
 
     // Card middle section
     const dailyConditionCardMiddle = document.createElement('div');

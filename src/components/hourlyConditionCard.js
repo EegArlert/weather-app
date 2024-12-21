@@ -24,7 +24,9 @@ function createHourlyWeatherCard(data, measurementUnit) {
     // Card icon section
     const hourlyConditionCardIcon = document.createElement('div');
     hourlyConditionCardIcon.className = 'card-icon hourly';
-    hourlyConditionCardIcon.innerHTML = `<img src="${getIcon(data.icon)}"/>`;
+    hourlyConditionCardIcon.innerHTML = `
+    <img src="${getIcon(data.icon)}" alt="${data.icon}"/>
+    `;
     // Card mid section
     const hourlyConditionCardMid = document.createElement('div');
     hourlyConditionCardMid.className = 'card-middle hourly';
