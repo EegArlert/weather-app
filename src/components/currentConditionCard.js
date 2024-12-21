@@ -27,7 +27,7 @@ function createCurrentWeatherCard(data, measurementUnit) {
 
     const currentConditionIconElement = document.createElement('div');
     currentConditionIconElement.className = 'icon current';
-    currentConditionIconElement.innerHTML = `<img src=${getIcon(data.icon)}/>`;
+    currentConditionIconElement.innerHTML = `<img src="${getIcon(data.icon)}"/>`;
 
     const currentConditionTempElement = document.createElement('p');
     currentConditionTempElement.className = 'temp current';

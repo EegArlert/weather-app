@@ -10,7 +10,7 @@
     margin: 16px auto; /* Center the card */
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 12px
 }
 
 /* Top Section */
